@@ -169,7 +169,7 @@ export default (props) => {
 									style={{ backgroundColor: props.color }}
 								>
 									<FontAwesomeIcon
-										icon={['fas', 'music-note']}
+										icon={['fas', 'headphones']}
 										className={classes.avatarIcon}
 									/>
 								</Avatar>

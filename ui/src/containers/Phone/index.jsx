@@ -70,6 +70,15 @@ export default withRouter((props) => {
 					overflow: 'hidden',
 					zoom: `${settings.zoom}%`,
 			  },
+		notificationActive: {
+			height: '100vh',
+			width: 500,
+			position: 'absolute',
+			bottom: '-70vh',
+			right: '2%',
+			overflow: 'hidden',
+			zoom: `${settings.zoom}%`,
+		},
 		phoneImg: {
 			zIndex: 100,
 			background: `transparent no-repeat center`,
@@ -115,10 +124,38 @@ export default withRouter((props) => {
 		return LoadableSubComponent;
 	};
 
+	const notifications = useSelector(
+		(state) => state.notifications.notifications,
+	);
+
+	const [hasNotifs, setHasNotifs] = React.useState(0);
+	const myApps = useMyApps();
+
+    React.useEffect(() => {
+        let t = notifications
+            .sort((a, b) => b.time - a.time)
+            .filter(
+                (n) =>
+                    n.show &&
+                    (typeof n.app == 'object' || Boolean(myApps[n.app])),
+            )
+            .slice(0, 2);
+
+        setHasNotifs(t?.length ?? 0);
+    }, [notifications]);
+
 	if (!Boolean(player)) return null;
+
 	return (
-		<Slide direction="up" in={visible} mountOnEnter unmountOnExit>
-			<div className={classes.wrapper}>
+		<Slide
+			direction="up"
+			in={hasNotifs > 0 || visible}
+			mountOnEnter
+			unmountOnExit
+		>
+			<div
+				className={visible ? classes.wrapper : classes.notificationActive}
+			>
 				<img className={classes.phoneImg} src={phoneImg} />
 				<div className={classes.phone}>
 					<img

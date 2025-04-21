@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
 		padding: 15,
 		color: theme.palette.text.main,
 		fontWeight: 'bold',
-		fontFamily: 'Aclonica',
+		fontFamily: 'Oswald',
 	},
 	settingsList: {
 		height: '95%',

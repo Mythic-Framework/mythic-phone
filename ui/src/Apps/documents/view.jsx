@@ -91,11 +91,11 @@ const useStyles = makeStyles((theme) => ({
         '& .ql-size-small': {
             fontSize: '0.75em',
         },
-        '& .ql-font-serif': {
-            fontFamily: 'Georgia, Times New Roman, serif',
+        '& .ql-font-Oswald': {
+            fontFamily: 'Oswald',
         },
-        '& .ql-font-monospace': {
-            fontFamily: 'Monaco, Courier New, monospace',
+        '& .ql-font-Oswald': {
+            fontFamily: 'Oswald',
         },
         '& .ql-align-center': {
             textAlign: 'center',
