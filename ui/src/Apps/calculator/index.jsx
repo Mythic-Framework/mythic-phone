@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 30,
 		wordBreak: 'break-word',
 		overflowWrap: 'break-word',
-		fontFamily: 'monospace',
+		fontFamily: 'Oswald',
 	},
 	button: {
 		height: '100%',
