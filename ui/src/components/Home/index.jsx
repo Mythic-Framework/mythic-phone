@@ -73,11 +73,19 @@ const useStyles = makeStyles((theme) => ({
 		background: `${theme.palette.primary.main}40`,
 	},
 	appIcon: {
-		fontSize: 35,
-		width: 60,
-		height: 60,
+		zIndex: 5,
+		width: '4rem',
+		height: '4rem',
+		color: 'white',
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: '0.6rem',
 		margin: 'auto',
-		color: '#fff',
+		transition: '0.25s ease-in-out',
+		cursor: 'pointer',
+		filter: 'drop-shadow(1px 2px 0px #00000041)',
+		fontSize: 35
 	},
 	appLabel: {
 		fontSize: 16,

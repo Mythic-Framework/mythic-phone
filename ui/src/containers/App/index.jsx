@@ -28,7 +28,7 @@ export default (props) => {
 
 	const muiTheme = createTheme({
 		typography: {
-			fontFamily: ['Roboto', 'sans-serif'],
+            fontFamily: 'Oswald',
 		},
 		palette: {
 			primary: {
@@ -172,7 +172,7 @@ export default (props) => {
 				<CssBaseline />
 				<Router>
 					<Phone />
-					{!phoneOpen && <Popups />}
+					{/* {!phoneOpen && <Popups />} */}
 					{showTrack && <Race />}
 				</Router>
 			</ThemeProvider>
