@@ -15,24 +15,15 @@ const useStyles = makeStyles((theme) => ({
 		margin: 'auto',
 		zIndex: 1000,
 	},
-	closedWrapper: {
-		position: 'absolute',
-		width: '15%',
-		bottom: '2%',
-		right: '2%',
-		margin: 'auto',
-		zIndex: 1000,
-	},
 }));
 
 export default () => {
 	const classes = useStyles();
-	const phoneOpen = useSelector((state) => state.phone.visible);
 	const newNotifs = useSelector((state) => state.notifications.notifications);
 	const myApps = useMyApps();
 
 	return (
-		<div className={phoneOpen ? classes.wrapper : classes.closedWrapper}>
+		<div className={classes.wrapper}>
 			{newNotifs
 				.sort((a, b) => b.time - a.time)
 				.filter(

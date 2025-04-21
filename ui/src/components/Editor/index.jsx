@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 		'& .ql-container': {
 			boxSizing: 'border-box',
-			fontFamily: 'Helvetica, Arial, sans-serif',
+			fontFamily: 'Oswald',
 			fontSize: '13px',
 			height: '100%',
 			margin: '0px',
@@ -296,11 +296,11 @@ const useStyles = makeStyles((theme) => ({
 			color: theme.palette.primary.main,
 		},
 		'& .ql-editor .ql-color-purple': { color: '#93f' },
-		'& .ql-editor .ql-font-serif': {
-			fontFamily: 'Georgia, Times New Roman, serif',
+		'& .ql-editor .ql-font-Oswald': {
+			fontFamily: 'Oswald',
 		},
-		'& .ql-editor .ql-font-monospace': {
-			fontFamily: 'Monaco, Courier New, monospace',
+		'& .ql-editor .ql-font-Oswald': {
+			fontFamily: 'Oswald',
 		},
 		'& .ql-editor .ql-size-small': { fontSize: '0.75em' },
 		'& .ql-editor .ql-size-large': { fontSize: '1.5em' },
@@ -621,23 +621,23 @@ const useStyles = makeStyles((theme) => ({
 		'& .ql-snow .ql-picker.ql-font': { width: '108px' },
 		'& .ql-snow .ql-picker.ql-font .ql-picker-label::before, .ql-snow .ql-picker.ql-font .ql-picker-item::before':
 			{
-				content: "'Sans Serif'",
+				content: "'Oswald'",
 			},
-		'& .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=serif]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before':
+		'& .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=Oswald]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=Oswald]::before':
 			{
-				content: "'Serif'",
+				content: "'Oswald'",
 			},
-		'& .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before':
+		'& .ql-snow .ql-picker.ql-font .ql-picker-label[data-value=Oswald]::before, .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=Oswald]::before':
 			{
-				content: "'Monospace'",
+				content: "'Oswald'",
 			},
-		'& .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=serif]::before':
+		'& .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=Oswald]::before':
 			{
-				fontFamily: 'Georgia, Times New Roman, serif',
+				fontFamily: 'Oswald',
 			},
-		'& .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before':
+		'& .ql-snow .ql-picker.ql-font .ql-picker-item[data-value=Oswald]::before':
 			{
-				fontFamily: 'Monaco, Courier New, monospace',
+				fontFamily: 'Oswald',
 			},
 		'& .ql-snow .ql-picker.ql-size': { width: '98px' },
 		'& .ql-snow .ql-picker.ql-size .ql-picker-label::before, .ql-snow .ql-picker.ql-size .ql-picker-item::before':
@@ -677,7 +677,7 @@ const useStyles = makeStyles((theme) => ({
 		'& .ql-toolbar.ql-snow': {
 			border: `1px solid ${theme.palette.border.main}`,
 			boxSizing: 'border-box',
-			fontFamily: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+            fontFamily: 'Oswald',
 			padding: '8px',
 		},
 		'& .ql-toolbar.ql-snow .ql-formats': { marginRight: '15px' },

@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 	footer: {
 		textAlign: 'right',
 		fontSize: 12,
-		fontFamily: 'monospace',
+		fontFamily: 'Oswald',
 		marginTop: 10,
 	},
 }));
