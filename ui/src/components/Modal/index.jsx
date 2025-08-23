@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 		zIndex: 10001,
 	},
 	header: {
-		borderBottom: `1px solid ${theme.palette.primary.main}`,
+		borderBottom: `1px solid ${theme.palette.error.main}`,
 		position: 'relative',
 		marginBottom: 15,
 		paddingBottom: 5,
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
 			background: '#ffffff52',
 		},
 		'&::-webkit-scrollbar-thumb:hover': {
-			background: theme.palette.primary.main,
+			background: theme.palette.error.main,
 		},
 		'&::-webkit-scrollbar-track': {
 			background: 'transparent',
@@ -63,6 +63,7 @@ const useStyles = makeStyles((theme) => ({
 		bottom: 0,
 		margin: 'auto',
 		fontSize: 14,
+		color: theme.palette.error.main,
 	},
 }));
 
@@ -84,7 +85,7 @@ export default ({
 	children = null,
 }) => {
 	const classes = useStyles();
-	
+
 	const internalSubmit = (e) => {
 		e.preventDefault();
 		onAccept(e);
@@ -97,9 +98,7 @@ export default ({
 			<div>
 				<div className={classes.closer} onClick={onClose}></div>
 				<div
-					className={`${classes.modal} ${
-						className != null ? className : ''
-					}`}
+					className={`${classes.modal} ${className != null ? className : ''}`}
 				>
 					<div className={classes.header}>
 						{Boolean(title) && <span>{title}</span>}
@@ -124,11 +123,19 @@ export default ({
 								</Button>
 							)}
 							{Boolean(onDelete) && (
-								<Button onClick={onDelete} disabled={disabled}>
+								<Button
+									color="error"
+									onClick={onDelete}
+									disabled={disabled}
+								>
 									{deleteLang}
 								</Button>
 							)}
-							<Button type="submit" disabled={disabled}>
+							<Button
+								type="submit"
+								color="error"
+								disabled={disabled}
+							>
 								{submitLang}
 							</Button>
 						</DialogActions>
@@ -141,9 +148,7 @@ export default ({
 			<div>
 				<div className={classes.closer} onClick={onClose}></div>
 				<div
-					className={`${classes.modal} ${
-						className != null ? className : ''
-					}`}
+					className={`${classes.modal} ${className != null ? className : ''}`}
 				>
 					<div className={classes.header}>
 						{Boolean(title) && <span>{title}</span>}
@@ -168,12 +173,20 @@ export default ({
 							</Button>
 						)}
 						{Boolean(onDelete) && (
-							<Button onClick={onDelete} disabled={disabled}>
+							<Button
+								color="error"
+								onClick={onDelete}
+								disabled={disabled}
+							>
 								{deleteLang}
 							</Button>
 						)}
 						{Boolean(onAccept) && (
-							<Button onClick={onAccept} disabled={disabled}>
+							<Button
+								color="error"
+								onClick={onAccept}
+								disabled={disabled}
+							>
 								{acceptLang}
 							</Button>
 						)}

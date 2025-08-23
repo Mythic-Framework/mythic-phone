@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 			background: '#ffffff52',
 		},
 		'&::-webkit-scrollbar-thumb:hover': {
-			background: '#1de9b6',
+			background: '#ff4500',
 		},
 		'&::-webkit-scrollbar-track': {
 			background: 'transparent',
@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
 			background: '#ffffff52',
 		},
 		'&::-webkit-scrollbar-thumb:hover': {
-			background: '#1de9b6',
+			background: '#ff4500',
 		},
 		'&::-webkit-scrollbar-track': {
 			background: 'transparent',
@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 		display: 'block',
 	},
 	header: {
-		background: '#00aced',
+		background: '#ff4500',
 		fontSize: 20,
 		padding: 15,
 		lineHeight: '45px',
@@ -113,7 +113,7 @@ export default (props) => {
 		let res = await sendTweet({
 			...pendingRetweet,
 			author: player.Alias.twitter,
-			content: `<b>RETWEET</b> @${pendingRetweet.author.name} "${pendingRetweet.content}"`,
+			content: `<b>REINVADE</b> @${pendingRetweet.author.name} "${pendingRetweet.content}"`,
 			time: Date.now(),
 			retweet: pendingRetweet._id,
 			likes: Array(),
@@ -123,7 +123,7 @@ export default (props) => {
 			// },
 		});
 		setPendingRetweet(null);
-		showAlert(res ? 'Retweeted' : 'Unable to Retweet');
+		showAlert(res ? 'Reinvaded' : 'Unable to Reinvade');
 	};
 
 	const sendTweet = async (tweet) => {
@@ -163,7 +163,7 @@ export default (props) => {
 			imgLink: '',
 		});
 		setOpen(false);
-		showAlert(res ? 'Tweet Created' : 'Unable to Create Tweet');
+		showAlert(res ? 'Invade Created' : 'Unable to Create Invade');
 	};
 
 	return (
@@ -171,7 +171,7 @@ export default (props) => {
 			<div className={classes.inner}>
 				<AppBar position="static" className={classes.header}>
 					<Grid item xs={16} style={{ lineHeight: '50px' }}>
-						<FontAwesomeIcon style={{ fontSize: 50 }} icon={'fa-brands fa-twitter'} />
+						<FontAwesomeIcon style={{ fontSize: 50 }} icon={'fa-solid fa-l'} />
 					</Grid>
 				</AppBar>
 				<div className={classes.tweetlist}>
@@ -197,7 +197,13 @@ export default (props) => {
 
 					<Fab
 						color="primary"
-						style={{ position: 'absolute', right: 20, bottom: 20 }}
+						style={{
+							position: 'absolute',
+							right: 20,
+							bottom: 20,
+							backgroundColor: '#ff0000',
+							color: '#ffffff'
+						}}
 						onClick={() => setOpen(true)}
 						disabled={player.Alias.twitter == null}
 					>
@@ -219,18 +225,18 @@ export default (props) => {
 			<Modal
 				form
 				open={open}
-				title="Send New Tweet"
+				title="Send New Invade"
 				onClose={() => setOpen(false)}
 				onAccept={onCreate}
 				onDelete={toggleImage}
-				submitLang="Send Tweet"
+				submitLang="Send Invade"
 				deleteLang={state.usingImg ? 'Remove Image' : 'Attach Image'}
 				closeLang="Cancel"
 			>
 				<>
 					<TextField
 						className={classes.editField}
-						label="Tweet"
+						label="Invade"
 						name="tweet"
 						type="text"
 						fullWidth
@@ -273,9 +279,9 @@ export default (props) => {
 				</>
 			</Modal>
 			<Confirm
-				title="Retweet?"
+				title="Reinvade?"
 				open={pendingRetweet != null}
-				confirm="Retweet"
+				confirm="Reinvade"
 				decline="Cancel"
 				onConfirm={onRetweet}
 				onDecline={() => setPendingRetweet(null)}
