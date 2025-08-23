@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: 20,
 	},
 	header: {
-		background: '#00aced',
+		background: '#ff0000',
 		fontSize: 20,
 		padding: 15,
 		lineHeight: '45px',
@@ -155,7 +155,7 @@ export default (props) => {
 			<AppBar position="static" className={classes.header}>
 				<Grid container>
 					<Grid item xs={8} style={{ lineHeight: '50px' }}>
-						Twitter
+						Life Invader
 					</Grid>
 					<Grid item xs={4} style={{ textAlign: 'right' }}>
 						<IconButton

@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	author: {
-		color: theme.palette.primary.main,
+		color: theme.palette.error.light,
 		fontSize: 16,
 	},
 	verification: {
@@ -45,8 +45,8 @@ const useStyles = makeStyles((theme) => ({
 		float: 'right',
 	},
 	avatar: {
-		width: 60,
-		height: 60,
+		width: 45,
+		height: 45,
 		margin: 'auto',
 	},
 	actionBtn: {
@@ -69,7 +69,7 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 	hashtag: {
-		color: theme.palette.primary.light,
+		color: theme.palette.error.main,
 	},
 	image: {
 		width: '100%',

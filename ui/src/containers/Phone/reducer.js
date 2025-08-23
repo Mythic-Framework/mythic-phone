@@ -163,11 +163,11 @@ export const initialState = {
 						],
 					},
 					twitter: {
-						storeLabel: 'Twitter',
-						label: 'Twitter',
-						icon: ['fab', 'twitter'],
+						storeLabel: 'Life Invader',
+						label: 'Life Invader',
+						icon: ['fas', 'l'],
 						name: 'twitter',
-						color: '#00aced',
+						color: '#ff0000',
 						canUninstall: true,
 						unread: 0,
 						// restricted: {
