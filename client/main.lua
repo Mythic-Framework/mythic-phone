@@ -39,7 +39,6 @@ function RetrieveComponents()
 	Keybinds = exports["mythic-base"]:FetchComponent("Keybinds")
 	Interaction = exports["mythic-base"]:FetchComponent("Interaction")
 	Inventory = exports["mythic-base"]:FetchComponent("Inventory")
-	Hud = exports["mythic-base"]:FetchComponent("Hud")
 	Targeting = exports["mythic-base"]:FetchComponent("Targeting")
 	ListMenu = exports["mythic-base"]:FetchComponent("ListMenu")
 	Labor = exports["mythic-base"]:FetchComponent("Labor")
@@ -67,7 +66,6 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Keybinds",
 		"Interaction",
 		"Inventory",
-		"Hud",
 		"Targeting",
 		"ListMenu",
 		"Labor",
@@ -275,10 +273,6 @@ function TogglePhone()
 			end
 		else
 			Phone:Close()
-		end
-
-		if not IsPedInAnyVehicle(PlayerPedId(), true) then
-			DisplayRadar(LocalPlayer.state.phoneOpen)
 		end
 	end
 end

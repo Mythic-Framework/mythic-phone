@@ -8,7 +8,6 @@ PHONE = {
 		Inventory.Close:All()
 		Interaction:Hide()
 		LocalPlayer.state.phoneOpen = true
-		DisplayRadar(true)
 		Hud:ShiftLocation(true)
 		PhonePlayIn()
 		SendNUIMessage({ type = "PHONE_VISIBLE" })
@@ -47,9 +46,6 @@ PHONE = {
 			Phone.Call:End()
 		end
 		SendNUIMessage({ type = "ALERTS_RESET" })
-		if not IsPedInAnyVehicle(PlayerPedId(), true) then
-			DisplayRadar(false)
-		end
 		Hud:ShiftLocation(false)
 		if not Phone.Call:Status() or _limited then
 			PhonePlayOut()
@@ -64,12 +60,12 @@ PHONE = {
 	ResetRoute = function(self)
 		SendNUIMessage({ type = "CLEAR_HISTORY" })
 	end,
-	-- InsertUSB = function(self, data)
-	-- 	SendNUIMessage({ type = "INSTALL_USB", data = data })
-	-- end,
-	-- RemoveUSB = function(self)
-	-- 	SendNUIMessage({ type = "REMOVE_USB" })
-	-- end,
+	InsertUSB = function(self, data)
+		SendNUIMessage({ type = "INSTALL_USB", data = data })
+	end,
+	RemoveUSB = function(self)
+		SendNUIMessage({ type = "REMOVE_USB" })
+	end,
 	ReceiveShare = function(self, data)
 		SendNUIMessage({ type = "RECEIVE_SHARE", data = data })
 	end,
@@ -79,6 +75,14 @@ PHONE = {
 				type = "LOAD_PERMS",
 				data = p,
 			})
+		end,
+		HasPermission = function(self, app, permission)
+			local myPerms = LocalPlayer.state.Character:GetData("PhonePermissions")
+			if not app or not permission then
+				return false
+			else
+				return PhonePermissions[app][permission]
+			end
 		end,
 	},
 	IsAppUsable = function(self, app)
@@ -226,16 +230,7 @@ PHONE = {
 			},
 		})
 	end,
-	Permissions = {
-		HasPermission = function(self, app, permission)
-			local myPerms = LocalPlayer.state.Character:GetData("PhonePermissions")
-			if not app or not permission then
-				return false
-			else
-				return PhonePermissions[app][permission]
-			end
-		end,
-	},
+
 }
 
 AddEventHandler("Proxy:Shared:RegisterReady", function()
