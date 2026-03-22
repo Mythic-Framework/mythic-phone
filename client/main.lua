@@ -277,9 +277,9 @@ function TogglePhone()
 			Phone:Close()
 		end
 
-		if not IsPedInAnyVehicle(PlayerPedId(), true) then
-			DisplayRadar(LocalPlayer.state.phoneOpen)
-		end
+		-- if not IsPedInAnyVehicle(PlayerPedId(), true) then
+		-- 	DisplayRadar(LocalPlayer.state.phoneOpen)
+		-- end
 	end
 end
 
@@ -290,6 +290,11 @@ end)
 RegisterNUICallback("CDExpired", function(data, cb)
 	cb("OK")
 	_openCd = false
+end)
+
+RegisterNUICallback("SaveFolders", function(data, cb)
+	cb("OK")
+	Callbacks:ServerCallback("Phone:Apps:SaveFolders", data)
 end)
 
 RegisterNUICallback("Home", function(data, cb)

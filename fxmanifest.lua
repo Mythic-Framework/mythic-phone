@@ -1,5 +1,5 @@
-name 'ARP Phone'
-description 'Phone Written For ARP'
+name 'Mythic Phone'
+description 'Phone UI Rewrite For Mythic'
 author '[Alzar]'
 version 'v1.0.0'
 url 'https://www.mythicrp.com'
@@ -9,10 +9,11 @@ game "gta5"
 client_script "@mythic-base/components/cl_error.lua"
 client_script "@mythic-pwnzor/client/check.lua"
 
-ui_page 'ui/dist/index.html'
+ui_page 'web/dist/index.html'
 
 files {
-  'ui/dist/*.*',
+  'web/dist/index.html',
+  'web/dist/assets/*',
 }
   
 client_scripts {
