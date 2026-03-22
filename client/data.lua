@@ -1,3 +1,10 @@
+RegisterNetEvent("Phone:Client:SetFolders", function(folders)
+	SendNUIMessage({
+		type = "SET_FOLDERS",
+		data = folders,
+	})
+end)
+
 RegisterNetEvent("Phone:Client:SetData", function(type, data, options)
 	while Phone == nil do
 		Wait(10)

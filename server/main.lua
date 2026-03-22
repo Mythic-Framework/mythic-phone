@@ -1,14 +1,26 @@
 function defaultApps()
+	local dock = { "contacts", "phone", "messages", "email" }
+	local dockSet = {}
+	for _, v in ipairs(dock) do dockSet[v] = true end
+
 	local defApps = {}
-	local dock = { "contacts", "phone", "messages" }
 	for k, v in pairs(PHONE_APPS) do
 		if not v.canUninstall then
 			table.insert(defApps, v.name)
 		end
 	end
+
+	-- Home excludes apps already in the dock
+	local homeApps = {}
+	for _, v in ipairs(defApps) do
+		if not dockSet[v] then
+			table.insert(homeApps, v)
+		end
+	end
+
 	return {
 		installed = defApps,
-		home = defApps,
+		home = homeApps,
 		dock = dock,
 	}
 end
@@ -148,8 +160,10 @@ AddEventHandler("Phone:Server:RegisterMiddleware", function()
 	Middleware:Add("Characters:Spawning", function(source)
 		Phone:UpdateJobData(source)
 		TriggerClientEvent("Phone:Client:SetApps", source, PHONE_APPS)
-
 		local char = Fetch:Source(source):GetData("Character")
+		local apps = char:GetData("Apps")
+		TriggerClientEvent("Phone:Client:SetFolders", source, (apps and apps.folders) or {})
+
 		local myPerms = char:GetData("PhonePermissions")
 		local modified = false
 		for app, perms in pairs(defaultPermissions) do
@@ -173,6 +187,9 @@ AddEventHandler("Phone:Server:RegisterMiddleware", function()
 	Middleware:Add("Phone:UIReset", function(source)
 		Phone:UpdateJobData(source)
 		TriggerClientEvent("Phone:Client:SetApps", source, PHONE_APPS)
+		local char = Fetch:Source(source):GetData("Character")
+		local apps = char:GetData("Apps")
+		TriggerClientEvent("Phone:Client:SetFolders", source, (apps and apps.folders) or {})
 	end)
 	Middleware:Add("Characters:Creating", function(source, cData)
 		local t = Middleware:TriggerEventWithData("Phone:CharacterCreated", source, cData)
@@ -236,6 +253,52 @@ AddEventHandler("Phone:Server:RegisterCallbacks", function()
 			apps.dock = newDock
 		end
 		char:SetData("Apps", apps)
+	end)
+
+	Callbacks:RegisterServerCallback("Phone:Apps:SaveFolders", function(src, data, cb)
+		local plyr = Fetch:Source(src)
+		local char = plyr:GetData("Character")
+		local apps = char:GetData("Apps")
+		if apps == nil then apps = defaultApps() end
+		if data ~= nil and data.folders ~= nil then
+			apps.folders = data.folders
+			-- Strip any apps that now live inside a folder out of home
+			local folderAppSet = {}
+			for _, folder in ipairs(apps.folders) do
+				for _, app in ipairs(folder.apps) do
+					folderAppSet[app] = true
+				end
+			end
+			local newHome = {}
+			for _, app in ipairs(apps.home) do
+				if not folderAppSet[app] then
+					table.insert(newHome, app)
+				end
+			end
+			apps.home = newHome
+		else
+			apps.folders = {}
+		end
+		-- Update in-memory state
+		char:SetData("Apps", apps)
+		-- Immediately persist to DB so folders survive restarts/crashes
+		Database.Game:updateOne({
+			collection = "characters",
+			query = {
+				User = plyr:GetData("AccountID"),
+				_id = char:GetData("ID"),
+			},
+			update = {
+				["$set"] = {
+					Apps = apps,
+				},
+			},
+		}, function(success)
+			if not success then
+				Logger:Error("Phone", string.format("Failed to persist folders for source %s", src))
+			end
+		end)
+		cb(true)
 	end)
 
 	Callbacks:RegisterServerCallback("Phone:Apps:Reorder", function(src, data, cb)
