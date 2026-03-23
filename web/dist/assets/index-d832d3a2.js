@@ -1,0 +1,1 @@
+import{r}from"./vendor-29cc5582.js";import{N as t}from"./index-b0bcfa42.js";import"./mui-550bf900.js";import"./fontawesome-core-96081926.js";import"./fontawesome-icons-d70ba38b.js";import"./router-5c5e3647.js";function f(){return r.useEffect(()=>{t.send("OpenCamera")},[]),null}export{f as default};
