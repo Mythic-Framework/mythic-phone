@@ -1,0 +1,1 @@
+import{p as e}from"./index-b0bcfa42.js";import{H as t}from"./index-23975b56.js";const o=r=>t(e.sanitize(r)),s=r=>r.toLowerCase().replace(/ /g,"-").replace(/[^\w-]+/g,""),c=new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"});export{c as C,o as S,s as a};
