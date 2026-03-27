@@ -1,1 +1,0 @@
-const e=n=>{switch(n.Type){case"personal":return"Current Account";case"personal_savings":return"Savings Account";default:return n.Name}},t=n=>{switch(n.Type){case"personal":return"Current Account";case"personal_savings":return"Savings Account";case"organization":return"Organization Account";default:return"Bank Account"}};export{t as a,e as g};
