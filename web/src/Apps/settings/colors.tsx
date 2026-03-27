@@ -46,11 +46,19 @@ const APP_REGISTRY: {
   { id: 'twitter',       label: 'Twitter',       icon: ['fab', 'twitter'],              sub: 'Accent Color',    defaultColor: DEFAULT_TEAL, colorKeys: [{ key: 'twitter', label: 'Accent Color' }] },
 ];
 
+// These apps are always shown regardless of installed status (core phone apps)
+const ALWAYS_SHOW = new Set(['home', 'settings', 'phone', 'messages']);
+
 export default function ColorsPage() {
   const dispatch = useDispatch<AppDispatch>();
   const settings = useSelector((state: RootState) => state.data.data.player.PhoneSettings);
+  const installed: string[] = useSelector((state: RootState) => (state.data.data as any).player?.Apps?.installed ?? []);
   const [open, setOpen] = useState<string | null>(null);
   const toggle = (id: string) => setOpen(o => o === id ? null : id);
+
+  const visibleApps = APP_REGISTRY.filter(app =>
+    ALWAYS_SHOW.has(app.id) || installed.includes(app.id)
+  );
 
   const getSavedColor = (key: string, defaultColor: string) => {
     const saved = settings?.colors?.[key];
@@ -65,7 +73,7 @@ export default function ColorsPage() {
   return (
     <div style={{ height: '100%', background: BG, display: 'flex', flexDirection: 'column' }}>
       <div style={{ flex: 1, overflowY: 'auto' }}>
-        {APP_REGISTRY.map(app => {
+        {visibleApps.map(app => {
           const firstKey = app.colorKeys[0].key;
           const previewColor = getSavedColor(firstKey, app.defaultColor);
           const isOpen = open === app.id;

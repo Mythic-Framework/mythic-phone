@@ -121,7 +121,7 @@ const FolderOverlay: React.FC<FolderOverlayProps> = ({ folder, apps, onClose, on
                         <div style={{ width: 38, height: 38, borderRadius: 10, flexShrink: 0, background: data.color, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 17, color: '#fff', boxShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
                           <FontAwesomeIcon icon={data.icon} />
                         </div>
-                        <div style={{ width: CELL - 4, fontSize: 9, lineHeight: '11px', height: 11, color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', textAlign: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        <div style={{ width: CELL - 4, fontSize: 14, lineHeight: '11px', height: 11, color: 'rgba(255,255,255,0.85)', fontFamily: 'sans-serif', textAlign: 'center', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                           {data.label}
                         </div>
                       </div>
@@ -247,7 +247,7 @@ const FolderIcon: React.FC<FolderIconProps> = ({ folder, apps, onOpen, onMouseDo
           <div key={`e-${i}`} style={{ borderRadius: 5, background: 'rgba(255,255,255,0.1)' }} />
         ))}
       </div>
-      <div style={{ fontSize: 10, color: isDragTarget ? TEAL : hov ? '#fff' : 'rgba(255,255,255,0.8)', marginTop: 5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '90%', fontFamily: "'Oswald', sans-serif", fontWeight: 400, letterSpacing: '0.04em', textAlign: 'center', transition: 'color 0.15s' }}>
+      <div style={{ fontSize: 14, color: isDragTarget ? TEAL : hov ? '#fff' : 'rgba(255,255,255,0.8)', marginTop: 5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '90%', fontFamily: "'Oswald', sans-serif", fontWeight: 400, letterSpacing: '0.04em', textAlign: 'center', transition: 'color 0.15s' }}>
         {folder.name}
       </div>
     </div>
@@ -733,7 +733,7 @@ export default function Home() {
           <FontAwesomeIcon icon={data.icon} />
         </div>
         {!isDock && (
-          <div style={{ fontSize: 10, color: isDropTarget ? TEAL : 'rgba(255,255,255,0.8)', marginTop: 5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '90%', pointerEvents: 'none', fontFamily: "'Oswald', sans-serif", fontWeight: 400, letterSpacing: '0.04em', textAlign: 'center', transition: 'color 0.15s' }}>
+          <div style={{ fontSize: 14, color: isDropTarget ? TEAL : 'rgba(255,255,255,0.8)', marginTop: 5, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: '90%', pointerEvents: 'none', fontFamily: "'Oswald', sans-serif", fontWeight: 400, letterSpacing: '0.04em', textAlign: 'center', transition: 'color 0.15s' }}>
             {data.label}
           </div>
         )}

@@ -179,7 +179,7 @@ export default function AppList() {
                   <FontAwesomeIcon icon={data.icon} />
                 </div>
                 <div style={{
-                  fontSize: 11,
+                  fontSize: 14,
                   color: isHovered ? '#fff' : 'rgba(255,255,255,0.75)',
                   marginTop: 7,
                   overflow: 'hidden',

@@ -1,7 +1,7 @@
 name 'Mythic Phone'
 description 'Phone UI Rewrite For Mythic'
 author '[Alzar]'
-version 'v1.0.0'
+version 'v1.0.3'
 url 'https://www.mythicrp.com'
 lua54 'yes'
 fx_version "cerulean"
