@@ -48,37 +48,13 @@ export default defineConfig({
 	build: {
 		outDir: 'dist',
 		emptyOutDir: true,
-		cssCodeSplit: false,
+		chunkSizeWarningLimit: 1600,
 		rollupOptions: {
 			output: {
+				inlineDynamicImports: true, // no lazy chunks — one JS bundle
 				entryFileNames: 'assets/index.js',
 				chunkFileNames: 'assets/[name].js',
 				assetFileNames: 'assets/[name][extname]',
-				manualChunks: {
-					vendor: [
-						'react',
-						'react-dom',
-						'react-redux',
-						'redux',
-						'redux-thunk',
-					],
-					mui: [
-						'@mui/material',
-						'@mui/icons-material',
-						'@emotion/react',
-						'@emotion/styled',
-					],
-					'fontawesome-core': [
-						'@fortawesome/fontawesome-svg-core',
-						'@fortawesome/react-fontawesome',
-					],
-					'fontawesome-icons': [
-						'@fortawesome/free-solid-svg-icons',
-						'@fortawesome/free-brands-svg-icons',
-						'@fortawesome/free-regular-svg-icons',
-					],
-					router: ['react-router-dom'],
-				},
 			},
 		},
 	},
