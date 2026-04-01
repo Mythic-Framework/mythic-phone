@@ -98,6 +98,7 @@ function RetrieveComponents()
 	Wallet = exports["mythic-base"]:FetchComponent("Wallet")
 	Sequence = exports["mythic-base"]:FetchComponent("Sequence")
 	Vendor = exports["mythic-base"]:FetchComponent("Vendor")
+	Version = exports["mythic-base"]:FetchComponent("Version")
 	RegisterChatCommands()
 end
 
@@ -131,6 +132,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Wallet",
 		"Sequence",
 		"Vendor",
+		"Version",
 	}, function(error)
 		if #error > 0 then
 			return
@@ -153,6 +155,8 @@ AddEventHandler("Core:Shared:Ready", function()
 			{ label = "Rank 9", value = 500000 },
 			{ label = "Rank 10", value = 1000000 },
 		}, true)
+
+		Version:Check('Mythic-Framework/Mythic-VersionCheckers', GetCurrentResourceName())
 	end)
 end)
 
