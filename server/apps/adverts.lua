@@ -1,6 +1,5 @@
 local _adverts = {
 	["0"] = {},
-	-- Lua, Suck My Dick
 }
 PHONE.Adverts = {
 	Create = function(self, source, advert)

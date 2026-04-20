@@ -56,8 +56,8 @@ export const initialState: DataState = {
 				walk: 'default',
 				emoteBinds: [],
 			},
-				Apps: {
-					home: [
+			Apps: {
+				home: [
 					...(import.meta.env.DEV ? ['lsunderground'] : []),
 					'redline',
 					'blueline',
@@ -79,11 +79,11 @@ export const initialState: DataState = {
 					'calculator',
 					'documents',
 					'loans',
-					],
-						dock: ['contacts', 'phone', 'messages', 'email'],
+				],
+				dock: ['contacts', 'phone', 'messages', 'email'],
 				installed: [
-						...(import.meta.env.DEV ? ['lsunderground'] : []),
-						'redline',
+					...(import.meta.env.DEV ? ['lsunderground'] : []),
+					'redline',
 					'blueline',
 					'twitter',
 					'leoassist',
@@ -106,7 +106,7 @@ export const initialState: DataState = {
 					'garage',
 					'pingem',
 					'documents',
-				'loans',
+					'loans',
 				],
 			},
 			Armor: 100,
@@ -173,10 +173,43 @@ export const initialState: DataState = {
 						Id: 'hq',
 						Name: 'Headquarters',
 						Grades: [
-							{ Id: 'employee', Name: 'Employee', Level: 2, Permissions: {} },
-							{ Id: 'senior', Name: 'Senior Employee', Level: 4, Permissions: { JOB_FLEET_ACCESS: true } },
-							{ Id: 'manager', Name: 'Manager', Level: 6, Permissions: { JOB_HIRE: true, JOB_FIRE: true, JOB_FLEET_ACCESS: true, JOB_MANAGE_EMPLOYEES: true } },
-							{ Id: 'owner', Name: 'Owner', Level: 9, Permissions: { JOB_HIRE: true, JOB_FIRE: true, JOB_FLEET_ACCESS: true, JOB_MANAGE_EMPLOYEES: true, JOB_MANAGEMENT: true, JOB_PAY_EMPLOYEES: true, JOB_PAY_CUSTOMERS: true } },
+							{
+								Id: 'employee',
+								Name: 'Employee',
+								Level: 2,
+								Permissions: {},
+							},
+							{
+								Id: 'senior',
+								Name: 'Senior Employee',
+								Level: 4,
+								Permissions: { JOB_FLEET_ACCESS: true },
+							},
+							{
+								Id: 'manager',
+								Name: 'Manager',
+								Level: 6,
+								Permissions: {
+									JOB_HIRE: true,
+									JOB_FIRE: true,
+									JOB_FLEET_ACCESS: true,
+									JOB_MANAGE_EMPLOYEES: true,
+								},
+							},
+							{
+								Id: 'owner',
+								Name: 'Owner',
+								Level: 9,
+								Permissions: {
+									JOB_HIRE: true,
+									JOB_FIRE: true,
+									JOB_FLEET_ACCESS: true,
+									JOB_MANAGE_EMPLOYEES: true,
+									JOB_MANAGEMENT: true,
+									JOB_PAY_EMPLOYEES: true,
+									JOB_PAY_CUSTOMERS: true,
+								},
+							},
 						],
 					},
 				],
@@ -191,10 +224,41 @@ export const initialState: DataState = {
 						Id: 'warehouse',
 						Name: 'Warehouse',
 						Grades: [
-							{ Id: 'worker', Name: 'Worker', Level: 1, Permissions: {} },
-							{ Id: 'supervisor', Name: 'Supervisor', Level: 4, Permissions: { JOB_FLEET_ACCESS: true } },
-							{ Id: 'manager', Name: 'Manager', Level: 6, Permissions: { JOB_HIRE: true, JOB_FIRE: true, JOB_MANAGE_EMPLOYEES: true } },
-							{ Id: 'owner', Name: 'Owner', Level: 9, Permissions: { JOB_HIRE: true, JOB_FIRE: true, JOB_FLEET_ACCESS: true, JOB_MANAGE_EMPLOYEES: true, JOB_MANAGEMENT: true, JOB_PAY_EMPLOYEES: true } },
+							{
+								Id: 'worker',
+								Name: 'Worker',
+								Level: 1,
+								Permissions: {},
+							},
+							{
+								Id: 'supervisor',
+								Name: 'Supervisor',
+								Level: 4,
+								Permissions: { JOB_FLEET_ACCESS: true },
+							},
+							{
+								Id: 'manager',
+								Name: 'Manager',
+								Level: 6,
+								Permissions: {
+									JOB_HIRE: true,
+									JOB_FIRE: true,
+									JOB_MANAGE_EMPLOYEES: true,
+								},
+							},
+							{
+								Id: 'owner',
+								Name: 'Owner',
+								Level: 9,
+								Permissions: {
+									JOB_HIRE: true,
+									JOB_FIRE: true,
+									JOB_FLEET_ACCESS: true,
+									JOB_MANAGE_EMPLOYEES: true,
+									JOB_MANAGEMENT: true,
+									JOB_PAY_EMPLOYEES: true,
+								},
+							},
 						],
 					},
 				],
@@ -764,13 +828,58 @@ export const initialState: DataState = {
 		},
 		rosterData: {
 			testy_co: [
-				{ SID: 1, First: 'Testy', Last: 'McTest', JobData: { Id: 'testy_co', Workplace: { Id: 'hq', Name: 'Headquarters' }, Grade: { Id: 'owner', Name: 'Owner', Level: 9 } } },
-				{ SID: 2, First: 'Jane', Last: 'Doe', JobData: { Id: 'testy_co', Workplace: { Id: 'hq', Name: 'Headquarters' }, Grade: { Id: 'manager', Name: 'Manager', Level: 6 } } },
-				{ SID: 3, First: 'John', Last: 'Smith', JobData: { Id: 'testy_co', Workplace: { Id: 'hq', Name: 'Headquarters' }, Grade: { Id: 'employee', Name: 'Employee', Level: 2 } } },
+				{
+					SID: 1,
+					First: 'Testy',
+					Last: 'McTest',
+					JobData: {
+						Id: 'testy_co',
+						Workplace: { Id: 'hq', Name: 'Headquarters' },
+						Grade: { Id: 'owner', Name: 'Owner', Level: 9 },
+					},
+				},
+				{
+					SID: 2,
+					First: 'Jane',
+					Last: 'Doe',
+					JobData: {
+						Id: 'testy_co',
+						Workplace: { Id: 'hq', Name: 'Headquarters' },
+						Grade: { Id: 'manager', Name: 'Manager', Level: 6 },
+					},
+				},
+				{
+					SID: 3,
+					First: 'John',
+					Last: 'Smith',
+					JobData: {
+						Id: 'testy_co',
+						Workplace: { Id: 'hq', Name: 'Headquarters' },
+						Grade: { Id: 'employee', Name: 'Employee', Level: 2 },
+					},
+				},
 			],
 			acme_corp: [
-				{ SID: 99, First: 'Big', Last: 'Boss', JobData: { Id: 'acme_corp', Workplace: { Id: 'warehouse', Name: 'Warehouse' }, Grade: { Id: 'owner', Name: 'Owner', Level: 9 } } },
-				{ SID: 1, First: 'Testy', Last: 'McTest', JobData: { Id: 'acme_corp', Workplace: { Id: 'warehouse', Name: 'Warehouse' }, Grade: { Id: 'manager', Name: 'Manager', Level: 6 } } },
+				{
+					SID: 99,
+					First: 'Big',
+					Last: 'Boss',
+					JobData: {
+						Id: 'acme_corp',
+						Workplace: { Id: 'warehouse', Name: 'Warehouse' },
+						Grade: { Id: 'owner', Name: 'Owner', Level: 9 },
+					},
+				},
+				{
+					SID: 1,
+					First: 'Testy',
+					Last: 'McTest',
+					JobData: {
+						Id: 'acme_corp',
+						Workplace: { Id: 'warehouse', Name: 'Warehouse' },
+						Grade: { Id: 'manager', Name: 'Manager', Level: 6 },
+					},
+				},
 			],
 		},
 		JobPermissions: {
@@ -817,7 +926,8 @@ export const initialState: DataState = {
 				number: '333-333-3333',
 				method: 1,
 				time: 1583397349801,
-				message: 'This is a test message that is quite long and I really hope it works',
+				message:
+					'This is a test message that is quite long and I really hope it works',
 				unread: true,
 			},
 			{
@@ -877,7 +987,7 @@ export const initialState: DataState = {
 				_id: '1',
 				sender: 'chop@mechanics.onion',
 				subject: 'Offer Expires Soon',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -888,9 +998,10 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '2',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die I Want To Fucking Die I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject:
+					'I Like Potato Trains I Like Potato Trains I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -899,16 +1010,16 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '3',
-				sender: 'fuckyou1@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'support@mechanics.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: Date.now(),
 			},
 			{
 				_id: '4',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -917,9 +1028,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '5',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -928,9 +1039,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '6',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -939,9 +1050,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '7',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -950,9 +1061,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '8',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -961,9 +1072,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '9',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -972,9 +1083,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '10',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -983,9 +1094,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '11',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -994,9 +1105,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '12',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1005,9 +1116,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '13',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1016,9 +1127,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '14',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1027,9 +1138,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '15',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1038,9 +1149,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '16',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1049,9 +1160,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '17',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1060,9 +1171,9 @@ export const initialState: DataState = {
 			},
 			{
 				_id: '18',
-				sender: 'fuckyou@suckmyass.com',
-				subject: 'I Want To Fucking Die',
-				body: 'Why in the absolute fuck do we do this to ourselves? Like all this bullshit to just entertain randoms on the internet?',
+				sender: 'admin@mechaincs.art',
+				subject: 'I Like Potato Trains',
+				body: 'Why are we doing this to ourselves? all tis nonsense just to make memes on the internet?',
 				time: 1583397349801,
 				unread: true,
 				flags: {
@@ -1081,7 +1192,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: '@Arch #FuckArch Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'@Arch #potatoes Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1092,7 +1204,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1103,7 +1216,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1114,7 +1228,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1125,7 +1240,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1136,7 +1252,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 			{
@@ -1147,7 +1264,8 @@ export const initialState: DataState = {
 				},
 				image: { using: false, link: null },
 				time: 1618740407000,
-				content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+				content:
+					'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 				likes: [],
 			},
 		],
@@ -1339,7 +1457,8 @@ export const initialState: DataState = {
 				Label: 'Business Registration',
 				Price: 25000,
 				Event: 'CreateBusiness',
-				Disclaimer: 'Registering a company will immediately remove you from your current employment. You may not purchase this if you already own a company. You will be able to name your company via the Company Management app after purchasing this service.',
+				Disclaimer:
+					'Registering a company will immediately remove you from your current employment. You may not purchase this if you already own a company. You will be able to name your company via the Company Management app after purchasing this service.',
 			},
 		],
 		myProperties: [],
@@ -1408,26 +1527,26 @@ export default (state: DataState = initialState, action: Action): DataState => {
 						state.data[action.payload.type] != null
 							? Object.prototype.toString.call(
 									state.data[action.payload.type],
-							  ) == '[object Array]'
+								) == '[object Array]'
 								? action.payload.first
 									? [
 											action.payload.data,
 											...state.data[action.payload.type],
-									  ]
+										]
 									: [
 											...state.data[action.payload.type],
 											action.payload.data,
-									  ]
+										]
 								: action.payload.key
-								? {
-										...state.data[action.payload.type],
-										[action.payload.key]:
-											action.payload.data,
-								  }
-								: {
-										...state.data[action.payload.type],
-										...action.payload.data,
-								  }
+									? {
+											...state.data[action.payload.type],
+											[action.payload.key]:
+												action.payload.data,
+										}
+									: {
+											...state.data[action.payload.type],
+											...action.payload.data,
+										}
 							: [action.payload.data],
 				},
 			};
@@ -1436,25 +1555,29 @@ export default (state: DataState = initialState, action: Action): DataState => {
 				...state,
 				data: {
 					...state.data,
-					[action.payload.type]:
-						Array.isArray(state.data[action.payload.type])
-							? state.data[action.payload.type].map((data: any) =>
-									data._id == action.payload.id
-										? { ...action.payload.data }
-										: data,
-							  )
-							: action.payload.key
+					[action.payload.type]: Array.isArray(
+						state.data[action.payload.type],
+					)
+						? state.data[action.payload.type].map((data: any) =>
+								data._id == action.payload.id
+									? { ...action.payload.data }
+									: data,
+							)
+						: action.payload.key
 							? {
 									...state.data[action.payload.type],
 									[action.payload.id]: {
-										...state.data[action.payload.type]?.[action.payload.id],
-										[action.payload.key]: action.payload.data,
+										...state.data[action.payload.type]?.[
+											action.payload.id
+										],
+										[action.payload.key]:
+											action.payload.data,
 									},
-							  }
+								}
 							: {
 									...state.data[action.payload.type],
 									[action.payload.id]: action.payload.data,
-							  },
+								},
 				},
 			};
 		case 'REMOVE_DATA':
@@ -1466,22 +1589,29 @@ export default (state: DataState = initialState, action: Action): DataState => {
 						Object.prototype.toString.call(
 							state.data[action.payload.type],
 						) == '[object Array]'
-							? state.data[action.payload.type].filter((data: any) => {
-									return Object.prototype.toString.call(data) == '[object Object]'
-										? action.payload.key
-											? data[action.payload.key] != action.payload.id
-											: data._id != action.payload.id
-										: data != action.payload.id;
-							  })
-							: Object.keys(state.data[action.payload.type]).reduce(
-									(result: any, key: string) => {
-										if (key != action.payload.id) {
-											result[key] = state.data[action.payload.type][key];
-										}
-										return result;
+							? state.data[action.payload.type].filter(
+									(data: any) => {
+										return Object.prototype.toString.call(
+											data,
+										) == '[object Object]'
+											? action.payload.key
+												? data[action.payload.key] !=
+													action.payload.id
+												: data._id != action.payload.id
+											: data != action.payload.id;
 									},
-									{},
-							  ),
+								)
+							: Object.keys(
+									state.data[action.payload.type],
+								).reduce((result: any, key: string) => {
+									if (key != action.payload.id) {
+										result[key] =
+											state.data[action.payload.type][
+												key
+											];
+									}
+									return result;
+								}, {}),
 				},
 			};
 		default:

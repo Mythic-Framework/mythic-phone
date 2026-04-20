@@ -6,7 +6,7 @@ use_experimental_fxv2_oal 'yes'
 name 'Mythic Phone'
 description 'Phone UI Rewrite For Mythic'
 
-version '1.0.1'
+version '1.0.2'
 repository 'https://github.com/Mythic-Framework/mythic-phone'
 
 client_script "@mythic-base/components/cl_error.lua"

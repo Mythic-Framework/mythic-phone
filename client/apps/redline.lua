@@ -1,10 +1,3 @@
---[[
-	This code is probably a steaming pile of shit, I beg someone
-	that still has a few functioning brain cells to rewrite this
-	so it isn't as much of a steaming pile of shit.
-
-	Send Help.
-]]
 local _creator = false
 local _size = 20.0
 local _pendingTrack = {}
@@ -334,7 +327,7 @@ function SetupTrack(skipBlip)
 	end
 end
 
--- This is a fucking mess that somehow functions? Someone that is sane pls rewrite
+-- This function works, but is in need of a rewrite.
 function StartRace()
 	local cCp = 1
 	local sCp = -1
@@ -439,7 +432,7 @@ function StartRace()
 				SetBlipColour(raceBlips[cCp + 1], 6)
 				SetBlipScale(raceBlips[cCp + 1], 1.15)
 
-				-- Like what the fuck is this code?
+				-- might need a better implementation of this at some point, but for now it works just fine.
 				local ftr = nil
 				if cCp + 1 > #_activeRace.trackData.Checkpoints then
 					ftr = _activeRace.trackData.Checkpoints[1]
